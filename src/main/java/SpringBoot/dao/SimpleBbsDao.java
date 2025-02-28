@@ -38,8 +38,8 @@ public class SimpleBbsDao implements ISimpleBbsDao {
     public int writeDao( final String writer, final String title, final String content ){
         System.out.println("writeDao()");
 
-        String query = "INSERT INTO simple_bbs(id, writer, title, content) " +
-                "VALUES ( simple_bbs_seq.nextnal, ?, ?, ? )";
+        String query = "INSERT INTO simple_bbs( writer, title, content) " +
+                "VALUES ( ?, ?, ? )";
         return template.update( query, writer, title, content );
     } // f end
 

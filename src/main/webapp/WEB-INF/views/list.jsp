@@ -16,12 +16,12 @@
             <td>제목</td>
             <td>삭제</td>
         </tr>
-        <c:forEach item="${list}" var="dto">
+        <c:forEach items="${list}" var="dto">
             <tr>
                 <td>${dto.id}</td>
                 <td>${dto.writer}</td>
                 <td><a href="view?id=${dto.id}">${dto.title}</a></td>
-                <td><a href="delete?id=${dto.id}"></a></td>
+                <td><a href="delete?id=${dto.id}">X</a></td>
             </tr>
         </c:forEach>
     </table>

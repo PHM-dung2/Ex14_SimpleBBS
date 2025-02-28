@@ -20,7 +20,7 @@ public class MyController {
     } // f end
 
     @RequestMapping("/list")
-    public String userlistpage(Model model){
+    public String userlistPage(Model model){
         model.addAttribute("list", dao.listDao());
         return "list";
     } // f end
@@ -28,19 +28,22 @@ public class MyController {
     @RequestMapping("/view")
     public String view(HttpServletRequest req, Model model){
         String sId = req.getParameter("id");
+        model.addAttribute("dto", dao.viewDao(sId));
         return "view";
     } // f end
 
     @RequestMapping("/writeForm")
     public String writeFrom(){
+
         return "writeForm";
     } // f end
 
     @RequestMapping("/wirte")
-    public String wriite( Model model, HttpServletRequest req ){
+    public String write( Model model, HttpServletRequest req ){
         dao.writeDao( req.getParameter("writer"),
                       req.getParameter("title"),
                       req.getParameter("content") );
+
         return "redirect:list";
     } // f end
 
